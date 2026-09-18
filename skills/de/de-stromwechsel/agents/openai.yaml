@@ -1,0 +1,4 @@
+interface:
+  display_name: "Jährlicher Stromwechsel (DE)"
+  short_description: "Jährlichen Stromanbieterwechsel in Deutschland planen"
+  default_prompt: "Use $de-stromwechsel to research and plan my next German household electricity switch, including bonus safety, operational risks, direct offers, and strategic reserve providers."
