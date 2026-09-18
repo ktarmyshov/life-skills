@@ -1,24 +1,25 @@
 # Research protocol: German household electricity switching
 
-Use this protocol for substantive market research under the **de-stromwechsel** skill. Adapt the variables to the user's actual context and do not carry personal values from previous users into a new run.
+Use this protocol for substantive market research under the **de-stromwechsel** skill. Adapt all variables to the user's actual context and never carry personal values from a previous user into a new run.
 
 ## Contents
 
 1. Objective
 2. Input variables
-3. Scope and hard filters
-4. Market discovery
-5. Pricing and first-year economics
-6. Bonus safety
-7. Preisgarantie and contract terms
-8. Ökostrom quality
-9. Operational reliability
-10. Frequent-switcher / acceptance risk
-11. Strategic reserve providers
-12. Evidence hierarchy
-13. Decision model
-14. Required output
-15. Final verification checklist
+3. Default consumer profile and current-guidance check
+4. Portal snapshot workflow
+5. Market discovery
+6. Pricing and first-year economics
+7. Bonus safety
+8. Preisgarantie and contract terms
+9. Ökostrom quality
+10. Operational reliability
+11. Frequent-switcher / acceptance risk
+12. Strategic reserve providers
+13. Evidence hierarchy
+14. Decision model
+15. Required output
+16. Final verification checklist
 
 ## 1. Objective
 
@@ -40,28 +41,64 @@ Establish or infer only from supplied context:
 - **Switching strategy:** intentional annual switcher vs. longer-term customer.
 - **Contract constraints:** maximum Erstlaufzeit, fixed/dynamic preference, Preisgarantie requirements.
 - **Payment constraints:** monthly Abschlag, no Vorkasse/Kaution/Pakettarif unless explicitly accepted.
-- **Ökostrom preference:** none / 100% renewable / stronger additionality requirement.
+- **Ökostrom preference:** user override, if any.
 - **Existing strategic reserve providers:** if any.
 - **Excluded providers:** user choice or evidence-based exclusions.
 
 If a provider's exact price depends on street, house number, Netzgebiet, MaLo-ID, or an interactive calculator, do not fabricate a PLZ-only price. State what is missing or ask the user for the provider quote/screenshot when necessary.
 
-## 3. Scope and hard filters
+## 3. Default consumer profile and current-guidance check
 
-Default scope for an annual switcher unless the user specifies otherwise:
+Unless the user specifies otherwise, apply this baseline:
 
-- German private-household electricity.
-- Standard Haushaltsstrom.
-- Exclude EV, Wärmepumpe, PV, Smart-Meter specialty, Gewerbe, and other special tariffs unless relevant.
+- German private-household standard electricity.
 - Festpreistarif only; exclude dynamic tariffs unless requested.
 - Erstlaufzeit no longer than 12 months; shorter is allowed.
-- Preisgarantie should cover the whole initial term. Record its scope and exclusions rather than treating all guarantees as equivalent.
+- Preisgarantie should cover the whole initial term; verify its scope rather than treating all guarantees as equivalent.
 - Monthly Abschläge.
-- Exclude Vorkasse, Kaution, and Pakettarife unless the user explicitly accepts them.
+- Exclude Vorkasse, Kaution, and Pakettarife.
+- Prefer stronger Ökostrom: 100% renewable electricity plus independently evidenced additional Energiewende contribution where reasonably available.
+- For an intentional annual switcher, include realistically attainable bonuses in primary first-year economics.
+
+Tell the user briefly that these defaults are being applied and allow simple overrides.
+
+At the beginning of a substantive research run, check whether current general consumer guidance from **Verbraucherzentrale** and **Stiftung Warentest** has materially changed the baseline. Use them as the primary external sanity check for consumer-facing selection criteria. Use CHECK24, Verivox, and other comparison portals as secondary operational sources for current market controls and discovery mechanics, not as authorities on which offer is best.
 
 Do not silently relax a hard filter because a tariff is cheap. Put near-misses in a separate section.
 
-## 4. Market discovery
+## 4. Portal snapshot workflow
+
+A portal snapshot is optional input. Use it to broaden discovery and capture current market offers; do not require the user to perform portal work before research can proceed.
+
+When a fresh snapshot would help, offer concise portal-specific instructions based on the portal's **current UI**. Verify labels and controls at the time of use rather than relying on stale screenshots or remembered names.
+
+As a broad-discovery baseline:
+
+- set the user's exact consumption and location;
+- cap Erstlaufzeit at 12 months while allowing shorter terms;
+- require Preisgarantie through the initial term where the portal supports it;
+- show Festpreistarife only;
+- include bonuses for an intentional annual switcher;
+- select the portal option corresponding to stronger/sustainable Ökostrom when the user has not overridden the skill's sustainability default;
+- avoid restrictive **high customer satisfaction**, **recommended tariffs**, portal-only ranking, **regional-only**, or **direct-switch-only** filters unless the user explicitly wants them;
+- show all tariffs per provider when the portal offers that option.
+
+The goal is a broad candidate pool. Apply quality, operational, and bonus-safety screening independently afterward.
+
+### Export and copy/paste quirks
+
+Portal PDF exports, print views, and copied text may omit or ambiguously render checkbox/radio-button state.
+
+In particular, treat Verivox PDF/print and copy-paste filter states cautiously:
+
+- if the user explicitly states which options were selected, treat that statement as authoritative;
+- if a visible exported filter state materially conflicts with the agreed settings, flag it and ask or remind the user if necessary;
+- if control state is absent or blank, do **not** infer that the option was disabled;
+- do not restart the whole portal search merely because the export cannot prove UI state.
+
+Accept PDF, screenshot, copied text, or equivalent structured results. Extract the market candidates that are actually visible and continue with independent verification.
+
+## 5. Market discovery
 
 Use multiple routes:
 
@@ -75,7 +112,7 @@ Portal ranking, badges, popularity, sponsored placement, portal star scores, and
 
 When a portal and the provider's direct site differ, investigate both. A direct offer may be materially better or have different bonus/Öko terms.
 
-## 5. Pricing and first-year economics
+## 6. Pricing and first-year economics
 
 For every serious candidate, capture or calculate:
 
@@ -106,7 +143,7 @@ Base/no-bonus cost remains important as:
 
 For a non-annual customer, rebalance toward ongoing/base price and expected multi-year economics.
 
-## 6. Bonus safety
+## 7. Bonus safety
 
 Classify each economically relevant bonus.
 
@@ -144,7 +181,7 @@ Investigate:
 
 Preserve the offer-specific Vertragszusammenfassung, Preisblatt, AGB, or bonus terms before contract completion whenever possible.
 
-## 7. Preisgarantie and contract terms
+## 8. Preisgarantie and contract terms
 
 For every candidate verify:
 
@@ -161,11 +198,11 @@ Do not summarize a partial guarantee as if the total customer price were complet
 
 Online cancellation is convenient but not automatically a hard requirement. Reliable written cancellation methods can be acceptable.
 
-## 8. Ökostrom quality
+## 9. Ökostrom quality
 
-Apply the user's stated ecological preference.
+Unless the user overrides it, use the stronger sustainability baseline rather than plain Herkunftsnachweis-only green electricity.
 
-If the user wants stronger Ökostrom quality, distinguish:
+Distinguish:
 
 1. 100% renewable electricity / Herkunftsnachweise only;
 2. tariffs with independently evidenced additional Energiewende contribution;
@@ -173,9 +210,9 @@ If the user wants stronger Ökostrom quality, distinguish:
 
 Do not infer environmental additionality from a green brand name or portal badge alone.
 
-For each shortlisted tariff, state the evidence actually found. Keep ecological quality separate from price.
+For each shortlisted tariff, state the evidence actually found. Keep ecological quality separate from price. Do not reject a materially better overall option solely because the strongest additionality product is unavailable; explain the trade-off.
 
-## 9. Operational reliability
+## 10. Operational reliability
 
 Annual switchers are especially exposed to operational problems at the end of a contract. Search specifically for recurring patterns involving:
 
@@ -196,7 +233,7 @@ Distinguish isolated complaints from repeated patterns.
 
 Do not use generic review averages as proof. Search for concrete failure modes and date the evidence.
 
-## 10. Frequent-switcher / acceptance risk
+## 11. Frequent-switcher / acceptance risk
 
 For users who switch frequently, investigate evidence that a provider may reject customers based on previous contracts, promotional history, or perceived Bonusjäger behavior.
 
@@ -212,7 +249,7 @@ When acceptance uncertainty is meaningful, keep at least 2–3 ordinary candidat
 
 If repeated applications fail, stop optimizing rather than drifting accidentally into an unsuitable fallback.
 
-## 11. Strategic reserve providers
+## 12. Strategic reserve providers
 
 Evaluate reserves separately from the ordinary shortlist.
 
@@ -257,14 +294,14 @@ Roughly 2–3 failed applications can be a useful trigger, but do not turn this 
 
 When a reserve is activated, select a reasonable ordinary tariff from that provider and accept a moderate price premium in exchange for reliability.
 
-## 12. Evidence hierarchy
+## 13. Evidence hierarchy
 
-Prefer evidence in roughly this order:
+Use evidence according to purpose:
 
-1. Provider AGB, Preisblatt, Vertragszusammenfassung, official tariff calculator, and official bonus terms.
-2. Bundesnetzagentur, Verbraucherzentrale/vzbv, Schlichtungsstelle Energie, court or regulator material.
-3. Stiftung Warentest / Finanztip and high-quality specialist or mainstream reporting.
-4. Large review platforms, Google reviews, Reddit, forums, and community reports as qualitative pattern evidence.
+1. **Offer-specific facts:** provider AGB, Preisblatt, Vertragszusammenfassung, official tariff calculator, and official bonus terms.
+2. **Consumer/regulatory baseline:** Verbraucherzentrale/vzbv, Bundesnetzagentur, Schlichtungsstelle Energie, court/regulator material, and Stiftung Warentest.
+3. **Independent specialist context:** Finanztip and high-quality specialist or mainstream reporting.
+4. **Operational pattern evidence:** large review platforms, Google reviews, Reddit, forums, and community reports.
 
 For reviews:
 
@@ -275,13 +312,13 @@ For reviews:
 
 Use citations for factual claims and include the date/time relevance of market data.
 
-## 13. Decision model
+## 14. Decision model
 
 Keep hard filters separate from ranking criteria.
 
 ### Hard filters
 
-Reject candidates that violate the user's explicit constraints.
+Reject candidates that violate the user's explicit constraints or the declared baseline defaults that the user has not overridden.
 
 ### Primary factors for an annual switcher
 
@@ -294,14 +331,14 @@ Reject candidates that violate the user's explicit constraints.
 ### Secondary factors
 
 - no-bonus/base price
-- Ökostrom quality according to user preference
+- Ökostrom quality according to the default or user preference
 - regionality / municipal ownership / local value
 - evidenced Energiewende investment
 - social or corporate behavior when supported by concrete evidence
 
 Do not let soft tie-breakers override a serious operational or contractual problem.
 
-## 14. Required output
+## 15. Required output
 
 Produce a compact decision report with:
 
@@ -313,7 +350,7 @@ State:
 - consumption
 - supply start
 - switching strategy
-- relevant hard filters
+- baseline defaults and user overrides
 - current-contract benchmark if known
 
 ### B. Normal shortlist
@@ -331,7 +368,7 @@ For each show:
 - bonus-safety classification
 - Erstlaufzeit / Kündigungsfrist
 - Preisgarantie and scope
-- Ökostrom evidence if relevant
+- Ökostrom evidence
 - operational-risk summary
 - acceptance-risk note if relevant
 - source / offer date
@@ -362,20 +399,24 @@ Give a practical recommendation or small set of choices with trade-offs.
 
 Before Abschluss, tell the user exactly what still needs offer-specific confirmation. Prefer the provider's official checkout path.
 
-## 15. Final verification checklist
+## 16. Final verification checklist
 
 Before finalizing:
 
 - [ ] Exact user consumption used consistently.
 - [ ] Location/address specificity is sufficient for quoted prices.
 - [ ] Current benchmark included when available.
+- [ ] Applied baseline defaults and user overrides stated.
+- [ ] Current Verbraucherzentrale / Stiftung Warentest guidance checked for material changes when doing substantive research.
 - [ ] Portal rankings treated as leads, not authority.
+- [ ] Portal snapshot controls interpreted cautiously; missing checkbox/radio state not treated as evidence.
 - [ ] Direct-provider offers checked.
 - [ ] Hard filters enforced.
 - [ ] First-year and no-bonus economics both shown.
 - [ ] Every counted bonus has a safety classification.
 - [ ] Kündigung compatibility checked for annual switching.
 - [ ] Preisgarantie scope checked, not merely duration.
+- [ ] Ökostrom additionality checked under the default or user override.
 - [ ] Operational failure modes researched.
 - [ ] Review evidence distinguished from regulator/documentary evidence.
 - [ ] Frequent-switcher evidence dated and not overgeneralized.
