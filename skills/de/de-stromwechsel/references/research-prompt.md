@@ -65,6 +65,7 @@ As a broad-discovery baseline:
 
 - set the user's exact consumption and location;
 - cap Erstlaufzeit at 12 months while allowing shorter terms;
+- keep Kündigungsfrist at no more than 1 month where the portal exposes that control;
 - require Preisgarantie through the initial term where the portal supports it;
 - show Festpreistarife only;
 - include bonuses for an intentional annual switcher;
@@ -307,7 +308,7 @@ Keep hard filters separate from ranking criteria.
 
 ### Hard filters
 
-Reject candidates that violate the user's explicit constraints or the declared baseline defaults that the user has not overridden.
+Reject candidates that violate the user's explicit constraints or the baseline contract-safety defaults the user has not overridden: Festpreis, Erstlaufzeit up to 12 months, Kündigungsfrist up to 1 month, Preisgarantie through the initial term, monthly Abschläge, and no Vorkasse/Kaution/Pakettarif. Treat the stronger Ökostrom baseline as a preference unless the user explicitly makes it a hard requirement.
 
 ### Primary factors for an annual switcher
 
