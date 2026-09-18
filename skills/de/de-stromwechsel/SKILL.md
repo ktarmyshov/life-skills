@@ -21,6 +21,7 @@ Help the user choose and switch German household electricity providers with a re
    - Festpreistarif
    - Erstlaufzeit no longer than 12 months
    - Preisgarantie covering the whole initial term, with scope checked explicitly
+   - Kündigungsfrist no longer than 1 month
    - monthly Abschläge
    - no Vorkasse, Kaution, or Pakettarif
    - stronger Ökostrom preference: 100% renewable electricity plus independently evidenced additional Energiewende contribution where reasonably available
