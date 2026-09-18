@@ -6,7 +6,7 @@ Use this protocol for substantive market research under the **de-stromwechsel** 
 
 1. Objective
 2. Input variables
-3. Default consumer profile and current-guidance check
+3. Current-guidance check and baseline enforcement
 4. Portal snapshot workflow
 5. Market discovery
 6. Pricing and first-year economics
@@ -39,30 +39,19 @@ Establish or infer only from supplied context:
 - **Desired supply start / current contract end.**
 - **Recent provider history:** especially providers used in the last few years.
 - **Switching strategy:** intentional annual switcher vs. longer-term customer.
-- **Contract constraints:** maximum Erstlaufzeit, fixed/dynamic preference, Preisgarantie requirements.
-- **Payment constraints:** monthly Abschlag, no Vorkasse/Kaution/Pakettarif unless explicitly accepted.
-- **Ökostrom preference:** user override, if any.
+- **User overrides:** contract, payment, sustainability, provider, or other constraints that replace the baseline declared in SKILL.md.
 - **Existing strategic reserve providers:** if any.
 - **Excluded providers:** user choice or evidence-based exclusions.
 
 If a provider's exact price depends on street, house number, Netzgebiet, MaLo-ID, or an interactive calculator, do not fabricate a PLZ-only price. State what is missing or ask the user for the provider quote/screenshot when necessary.
 
-## 3. Default consumer profile and current-guidance check
+## 3. Current-guidance check and baseline enforcement
 
-Unless the user specifies otherwise, apply this baseline:
+Start from the consumer-friendly defaults declared in SKILL.md unless the user overrides them.
 
-- German private-household standard electricity.
-- Festpreistarif only; exclude dynamic tariffs unless requested.
-- Erstlaufzeit no longer than 12 months; shorter is allowed.
-- Preisgarantie should cover the whole initial term; verify its scope rather than treating all guarantees as equivalent.
-- Monthly Abschläge.
-- Exclude Vorkasse, Kaution, and Pakettarife.
-- Prefer stronger Ökostrom: 100% renewable electricity plus independently evidenced additional Energiewende contribution where reasonably available.
-- For an intentional annual switcher, include realistically attainable bonuses in primary first-year economics.
+At the beginning of a substantive research run, check whether current general consumer guidance from **Verbraucherzentrale** and **Stiftung Warentest** has materially changed that baseline. Use them as the primary external sanity check for consumer-facing selection criteria. Use CHECK24, Verivox, and other comparison portals as secondary operational sources for current market controls and discovery mechanics, not as authorities on which offer is best.
 
-Tell the user briefly that these defaults are being applied and allow simple overrides.
-
-At the beginning of a substantive research run, check whether current general consumer guidance from **Verbraucherzentrale** and **Stiftung Warentest** has materially changed the baseline. Use them as the primary external sanity check for consumer-facing selection criteria. Use CHECK24, Verivox, and other comparison portals as secondary operational sources for current market controls and discovery mechanics, not as authorities on which offer is best.
+If current authoritative guidance materially conflicts with a stored default, tell the user and adapt rather than silently following stale skill text.
 
 Do not silently relax a hard filter because a tariff is cheap. Put near-misses in a separate section.
 
@@ -89,7 +78,7 @@ The goal is a broad candidate pool. Apply quality, operational, and bonus-safety
 
 Portal PDF exports, print views, and copied text may omit or ambiguously render checkbox/radio-button state.
 
-In particular, treat Verivox PDF/print and copy-paste filter states cautiously:
+Treat Verivox PDF/print and copy-paste filter states cautiously:
 
 - if the user explicitly states which options were selected, treat that statement as authoritative;
 - if a visible exported filter state materially conflicts with the agreed settings, flag it and ask or remind the user if necessary;
@@ -200,7 +189,7 @@ Online cancellation is convenient but not automatically a hard requirement. Reli
 
 ## 9. Ökostrom quality
 
-Unless the user overrides it, use the stronger sustainability baseline rather than plain Herkunftsnachweis-only green electricity.
+Apply the sustainability default from SKILL.md unless the user overrides it.
 
 Distinguish:
 
