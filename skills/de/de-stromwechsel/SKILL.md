@@ -1,6 +1,6 @@
 ---
 name: de-stromwechsel
-description: Research, compare, and plan German household electricity-provider switches, especially recurring annual switches. Use for Stromanbieter search, tariff comparison, bonus and Preisgarantie checks, Ökostrom evaluation, direct-provider offer research, switching-risk analysis, Bonusjäger/Ablehnung concerns, and selection or activation of strategic reserve providers in Germany.
+description: Research, compare, and plan German household electricity-provider switches, especially recurring annual switches. Use for Stromanbieter search, tariff comparison, bonus and Preisgarantie checks, Ökostrom evaluation, direct-provider offer research, portal-assisted market snapshots, switching-risk analysis, Bonusjäger/Ablehnung concerns, and selection or activation of strategic reserve providers in Germany.
 ---
 
 # Jährlicher Stromwechsel (DE)
@@ -15,21 +15,38 @@ Help the user choose and switch German household electricity providers with a re
    - current provider/tariff and intended switch date
    - recent provider history when available
    - switching strategy: annual optimization or longer-term stability
-   - hard constraints such as max contract term, fixed-price requirement, Ökostrom preference, or excluded providers
+   - explicit constraints or preferences the user wants to override
 
-2. Before doing market research or producing a shortlist, read [references/research-prompt.md](references/research-prompt.md) and apply its protocol to the user's current context.
+2. If the user does not specify otherwise, use the skill's consumer-friendly baseline:
+   - Festpreistarif
+   - Erstlaufzeit no longer than 12 months
+   - Preisgarantie covering the whole initial term, with scope checked explicitly
+   - monthly Abschläge
+   - no Vorkasse, Kaution, or Pakettarif
+   - stronger Ökostrom preference: 100% renewable electricity plus independently evidenced additional Energiewende contribution where reasonably available
+   - for intentional annual switchers, count realistically attainable bonuses in first-year economics
 
-3. Treat CHECK24, Verivox, and similar portals as discovery inputs, not ranking authorities. If the user supplies current portal snapshots, use them as seeds instead of repeating the same portal work unnecessarily.
+   Briefly tell the user which defaults you are applying. Do not force a questionnaire when the defaults are acceptable; let the user override them.
 
-4. Search provider-direct offers as well as portal-discovered tariffs. Prefer official provider documents for price, Laufzeit, Kündigung, Preisgarantie, and bonus conditions. Use independent sources for operational and complaint evidence.
+3. Before substantive market research or producing a shortlist, read [references/research-prompt.md](references/research-prompt.md) and apply its protocol to the user's current context.
 
-5. For an intentional annual switcher:
+4. Treat CHECK24, Verivox, and similar portals as optional discovery inputs, not ranking authorities. If a portal snapshot would improve coverage, offer to guide the user through the current filter settings. A snapshot is useful but never a prerequisite.
+
+5. When the user provides portal results:
+   - use them as seeds instead of repeating the same portal work unnecessarily;
+   - trust explicit user statements about selected filters over missing or ambiguous export controls;
+   - do not infer that a checkbox/radio option was off merely because a PDF or copy-paste omitted its state;
+   - flag a visible filter state when it materially conflicts with the agreed research profile.
+
+6. Search provider-direct offers as well as portal-discovered tariffs. Prefer official provider documents for price, Laufzeit, Kündigung, Preisgarantie, and bonus conditions. Use independent sources for operational and complaint evidence.
+
+7. For an intentional annual switcher:
    - optimize primarily for effective first-year cost after realistically attainable bonuses;
    - do not penalize a large bonus merely because it is large;
    - verify that bonus conditions are compatible with ordinary termination after roughly 12 months;
    - always show the no-bonus/base cost as downside and second-year context.
 
-6. Keep financial attractiveness separate from operational reliability. Check recurring evidence around Kündigung, Zählerstand, Schätzung, Schlussrechnung, Guthaben, bonus payout, correction delays, support, and failed switches.
+8. Keep financial attractiveness separate from operational reliability. Check recurring evidence around Kündigung, Zählerstand, Schätzung, Schlussrechnung, Guthaben, bonus payout, correction delays, support, and failed switches.
 
 ## Strategic reserve providers
 
@@ -57,6 +74,13 @@ Keep the decision practical:
 - include attractive near-misses or rejected candidates when the rejection reason teaches something important;
 - give the concrete next step for contract verification or Abschluss.
 
-At the end of a completed switching cycle, remind the user to consider preserving useful history for the next cycle: chosen provider, actual cost, bonuses, acceptance/rejection, Kündigung outcome, meter-reading or billing issues, and reserve-provider choices. Do not impose a storage format; let the user choose a spreadsheet, Markdown, notes, another system, or nothing.
+At the end of a completed switching cycle, if the information is not already stored somewhere, remind the user to consider preserving for the next cycle:
+
+1. the chosen provider/tariff and actual economics;
+2. the current Strategic Reserve Provider(s), including any reserve added, replaced, consumed, or activated;
+3. bonus payout outcome and acceptance/rejection history;
+4. Kündigung outcome and material meter-reading, billing, or service problems.
+
+Do not impose a storage format; let the user choose a spreadsheet, Markdown, notes, another system, or nothing.
 
 Respond in the user's language. Preserve German market and legal terms where they are clearer than translations.
